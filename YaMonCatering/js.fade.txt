@@ -1,0 +1,58 @@
+EXAMPLE: http://jsfiddle.net/hibbard_eu/5y9zn6p5/
+
+<div id="overlay">
+  <div id="overlay-content">This will all vanish in 5 seconds ...</div>
+</div>
+
+<h1>My Awesome Page!</h1>
+<p>My Awesome content</p>
+
+-----------------------------------html------------------------------------
+
+#overlay{
+    	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.8;
+	z-index:1001;
+}
+
+#overlay-content{ 
+	position: absolute;
+	display: none;
+	width: 360px;
+	height: 90px;
+	padding: 16px;
+	border: 16px solid orange;
+	background-color: white;
+	z-index:1002;
+}
+
+------------------------------------css------------------------------------
+
+$.fn.center = function () {
+  this.css("position","absolute");
+  this.css("top", Math.max(0, (
+    ($(window).height() - $(this).outerHeight()) / 2) + 
+     $(window).scrollTop()) + "px"
+  );
+  this.css("left", Math.max(0, (
+    ($(window).width() - $(this).outerWidth()) / 2) + 
+     $(window).scrollLeft()) + "px"
+  );
+  return this;
+}
+
+$("#overlay").show();
+$("#overlay-content").show().center();
+
+setTimeout(function(){    
+  $("#overlay").fadeOut();
+}, 5000);
+
+
+-------------------------------------JS-----------------------------------
