@@ -8,6 +8,7 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+	<icon src="res/icon.png" />
     <preference name="phonegap-version" value="3.7.0" />
     <plugin name="org.apache.cordova.inappbrowser" />
     <allow-navigation href="https://*/*" />
